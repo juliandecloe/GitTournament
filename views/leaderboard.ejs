@@ -1,0 +1,38 @@
+<%- include('./partials/head') %>
+
+  <section>
+    <h2>Leaderboard page</h2>
+    <p>Here are the leaderboards</p>
+  </section>
+  
+  <section>
+      <article>
+        <% repositories.nodes.forEach(project => { %>
+          <p>project name: <%= project.name %></p>   
+          <p>user url: <a target="_blank" href="<%= project.url %>">Project</a></p>   
+          <img src="<%= project.owner.avatarUrl %>" />
+          <p>commit counts:<%= project.commitComments.totalCount %></p>  
+          <hr>
+             
+        <%}) %>
+          
+      </article>
+<% //project.forEach(project => { %>
+    <article>
+      <h2>TotalCount: <%= //projects.totalCount %></h2>
+      <% //}) %>
+    </article>
+    <%= projects.totalCount %>
+      <% //userData.forEach(user => { %>
+      <article>
+          <img src="<%= userData.avatarUrl %>" />
+          <% //}) %>
+        </article>
+
+
+     
+
+
+  </section>
+
+<%- include('./partials/foot') %>
