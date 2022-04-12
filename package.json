@@ -8,13 +8,13 @@
     "example": "examples"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/basv1996/project-2-2122.git"
   },
-  "author": "Juul, Pepijn & Bas",
+  "author": "Juul, Pepijn, Nora & Bas",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/basv1996/project-2-2122/issues"
