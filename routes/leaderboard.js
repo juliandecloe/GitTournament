@@ -27,6 +27,20 @@ module.exports = express
           repository(name: "browser-technologies-2122", owner: "cmda-minor-web") {
             forks(first: 10, privacy: PUBLIC) {
               totalCount
+              edges {
+                node {
+                  defaultBranchRef {
+                    target {
+                      ... on Commit {
+                        id
+                        history {
+                          totalCount
+                        }
+                      }
+                    }
+                  }
+                }
+              }
               nodes {
                 forkCount
                 url
@@ -48,49 +62,14 @@ module.exports = express
         }
         `
 
-
-
-
-// `
-// {
-//     viewer {
-//       login
-//     }
-//     user(login: "basv1996") {
-//       avatarUrl
-//       bio
-//       projects(first: 10) {
-//         nodes {
-//           name
-//         }
-//       }
-//     }
-//   }
-//   `
-
-
-    //   `{
-    //   user(login: "basv1996") {
-    //     repositories(first: 100, orderBy: {field: UPDATED_AT, direction: DESC}, privacy: PUBLIC, isFork: false) {
-    //       edges {
-    //         node {
-    //           name
-    //           url
-    //           description
-    //           updatedAt
-    //           homepageUrl
-    //         }
-    //       }
-    //     }
-    //   }
-    // }`
     
     ).then((data) => {
       res.render('leaderboard', {
         //projects: data.user.repositories.edges,
         userData: data.user,
         projects: data.user.projects,
-        repositories: data.repository.forks
+        repositories: data.repository.forks,
+        deafaultBranch: data.repositories.forks.totalCount.edges.node.deafaultBranch.target
       })
     })
   })
