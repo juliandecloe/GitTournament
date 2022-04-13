@@ -8,13 +8,14 @@
     "example": "examples"
   },
   "scripts": {
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/basv1996/project-2-2122.git"
   },
-  "author": "Juul, Pepijn, Nora & Bas",
+  "author": "Julian, Pepijn, Nora & Bas",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/basv1996/project-2-2122/issues"

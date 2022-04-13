@@ -1,15 +1,18 @@
 const express = require('express')
-const { graphql } = require('@octokit/graphql')
+const {
+  graphql
+} = require('@octokit/graphql')
 const graphqlAuth = graphql.defaults({
-  headers: { authorization: 'token ' + process.env.GITHUB_PERSONAL_ACCESS_TOKEN },
+  headers: {
+    authorization: 'token ' + process.env.GITHUB_PERSONAL_ACCESS_TOKEN
+  },
 })
 
 module.exports = express
-  .Router()
-
+.Router()
   .get('/', function (req, res) {
     graphqlAuth(
-      `query {
+        `query {
         repositoryOwner(login: "cmda-minor-web") {
           repository(name: "browser-technologies-2122") {
             forks(first: 100) {
@@ -39,12 +42,11 @@ module.exports = express
             }
           }
         }
-      }` 
-    )
-    .then((data) => {
-      res.render('leaderboard', {
-        data: data.repositoryOwner.repository.forks.edges
+      }`
+      )
+      .then((data) => {
+        res.render('commits', {
+          data: data.repositoryOwner.repository.forks.edges
+        })
       })
-    })
-  })
-;
+  });

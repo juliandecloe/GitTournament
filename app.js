@@ -2,8 +2,8 @@ require('dotenv').config()
 const express = require('express')
 const indexRoute = require('./routes/index')
 const app = express()
-//const projectsRoute = require('./routes/projects')
-const leaderBoardRoute = require('./routes/leaderboard')
+const commitsRoute = require('./routes/commits')
+const reposRoute = require('./routes/repos')
 
 const PORT = process.env.PORT || 8000
 
@@ -14,9 +14,8 @@ module.exports =
   app.use(express.static('./public'))
 
   app.use('/', indexRoute)
-  app.use('/leaderboard', leaderBoardRoute)
-  //.use('/projects', projectsRoute)
-
+  app.use('/commits', commitsRoute)
+  app.use('/repos', reposRoute)
 
   app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
