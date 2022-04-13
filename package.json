@@ -8,7 +8,9 @@
     "example": "examples"
   },
   "scripts": {
-    "start": "nodemon app.js"
+    "server": "start",
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "repository": {
     "type": "git",
