@@ -24,7 +24,7 @@ module.exports = express
                       login
                       name
                       url
-                      repositories {
+                      starredRepositories {
                         totalCount
                       }
                     }
@@ -37,7 +37,7 @@ module.exports = express
       }`
       )
       .then((data) => {
-        res.render('repos', {
+        res.render('stars', {
           data: data.repositoryOwner.repository.forks.edges
         })
       })

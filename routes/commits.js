@@ -21,7 +21,6 @@ module.exports = express
                   defaultBranchRef {
                     target {
                       ... on Commit {
-                        id
                         history {
                           totalCount
                         }
@@ -30,7 +29,6 @@ module.exports = express
                   }
                   owner {
                     ... on User {
-                      id
                       avatarUrl
                       login
                       name

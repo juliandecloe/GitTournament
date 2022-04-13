@@ -4,6 +4,7 @@ const indexRoute = require('./routes/index')
 const app = express()
 const commitsRoute = require('./routes/commits')
 const reposRoute = require('./routes/repos')
+const starsRoute = require('./routes/stars')
 
 const PORT = process.env.PORT || 8000
 
@@ -16,6 +17,7 @@ module.exports =
   app.use('/', indexRoute)
   app.use('/commits', commitsRoute)
   app.use('/repos', reposRoute)
+  app.use('/stars', starsRoute)
 
   app.listen(PORT, () => {
     console.log(`Server is listening on port ${PORT}`);
