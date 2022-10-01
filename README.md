@@ -11,7 +11,7 @@
 
 
 ## Link naar de app
-:globe_with_meridians: [Link naar live app](https://project2-minor-web.herokuapp.com/)
+:globe_with_meridians: [Link naar live app](https://git-tournament.herokuapp.com/)
 
 
 
