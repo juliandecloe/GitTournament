@@ -18,28 +18,13 @@ module.exports = express
             forks(first: 100) {
               edges {
                 node {
-                  defaultBranchRef {
-                    target {
-                      ... on Commit {
-                        history {
-                          totalCount
-                        }
-                      }
-                    }
-                  }
                   owner {
                     ... on User {
                       avatarUrl
                       login
                       name
                       url
-                      repositories {
-                        totalCount
-                      }
                       followers {
-                        totalCount
-                      }
-                      starredRepositories {
                         totalCount
                       }
                     }
@@ -52,7 +37,7 @@ module.exports = express
       }`
       )
       .then((data) => {
-        res.render('index', {
+        res.render('followers', {
           data: data.repositoryOwner.repository.forks.edges
         })
       })

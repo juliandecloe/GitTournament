@@ -3,16 +3,16 @@
 <body class="leaderboard">
   <header>
     <a href="/">< Overview</a>
-    <h1>Most stars</h1>
+    <h1>Most followers</h1>
   </header>
   <main>
-    <% data.sort((a, b) => (a.node.owner.starredRepositories.totalCount < b.node.owner.starredRepositories.totalCount) ? 1 : -1)  %>
+    <% data.sort((a, b) => (a.node.owner.followers.totalCount < b.node.owner.followers.totalCount) ? 1 : -1)  %>
     <section>
       <% data.slice(0, 3).forEach(element => { %>
       <article>
         <img src="<%= element.node.owner.avatarUrl %>" />
         <a target="_blank" href="<%= element.node.owner.url %>"><%= element.node.owner.login %></a>
-        <p><%= element.node.owner.starredRepositories.totalCount %></p>
+        <p><%= element.node.owner.followers.totalCount %></p>
         <section class="hologram-total">
           <div class="hologram">
             <svg viewBox="0 0 651 782" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -155,7 +155,7 @@
         <div>
           <img src="<%= element.node.owner.avatarUrl %>" />
           <a target="_blank" href="<%= element.node.owner.url %>"><%= element.node.owner.login %></a>
-          <p><%= element.node.owner.starredRepositories.totalCount %></p>
+          <p><%= element.node.owner.followers.totalCount %></p>
         </div>
       </li>
       <% }) %>
